@@ -1,0 +1,52 @@
+
+
+import pysftp,sys,logging,os
+
+
+if __name__=="__main__":
+    
+    # Create and configure logger
+    logging.basicConfig(filename="C:/Users/rpalanisamy/Documents/PyScript/logs/SFTP_logs.log",
+					format='%(asctime)s %(message)s',
+					filemode='w')
+    
+    # Creating an object
+    logger = logging.getLogger()
+    
+    # Setting the threshold of logger to DEBUG
+    logger.setLevel(logging.DEBUG)
+
+    #getting arguements from the command line 
+    '''Those arguemtnts would be username, password , client folder , remaining path , filename and the local path'''
+    try:
+        print('Number of arguments:', len(sys.argv), 'arguments.')
+        print('Argument List:', str(sys.argv))
+        arglist=sys.argv[:7]
+    except:
+        logger.error("Arguements passed is invalid , try again !")
+
+    try:
+        with pysftp.Connection('maftp.thruinc.net',port=22, username=arglist[1], password=arglist[2]) as sftp:#establishing the connection
+            logger.info("connection established successfully !!")
+    except:
+        logger.error("connection failed ! , invalid username and password try again !")       
+
+
+    with sftp.cd('/COMMON/ToManh/'): 
+        sftp.cd(arglist[3])                                                          #this changes the directory to client folder 
+        sftp.cd(arglist[4])                                                          # changing directory to the remaining path.
+        file="/COMMON/ToManh/"+str(arglist[3])+str(arglist[4])+str(arglist[5])
+        if os.path.isfile(file)==False:
+            logging.critical("File doesn't exist !")
+        else:        
+            logging.info("file exists !")
+            if (os.path.isdir(arglist[6])==False):
+                logging.critical("Path mentioned for download is invalid or doesn't exist")
+            else:
+                try:
+                    sftp.get(arglist[5],localpath=arglist[6])                                    # get a remote file
+                    logger.info("downloading was successful!")
+                    print("download successful ")
+                except:
+                    logging.critical("download is unsuccessful due to an unexpected issue")
+                    print("Download failed !")

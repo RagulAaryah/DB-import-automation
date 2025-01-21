@@ -1,0 +1,13 @@
+2022-05-17 22:03:44,284 
+=============================SFTP connection========================================
+2022-05-17 22:03:44,284 Number of arguments : 12 `arguments.
+2022-05-17 22:03:44,284 Arguments List : ['Automation_tasks.py', 'rpalanisamy@manh.com', 'MKAY', 'DBDUMPS', 'MKAYPDB_MKAY_SW_PROD_04-May-2022_04_00.log', 'blvd-kuehwm1704.manhdev.com', 'KUEH2017WMRAGUDEV', 'KUEH2017WMRAGUDEV', 'blvd-kuehdb1901.manhdev.com', '1521', 'orclpdb']
+2022-05-17 22:03:44,330 Connected (version 2.0, client OpenSSH_7.4)
+2022-05-17 22:03:53,478 Authentication (password) successful!
+2022-05-17 22:03:53,479 connected to the DB host : blvd-kuehdb1901.manhdev.com successfully
+2022-05-17 22:03:54,345 Connected (version 2.0, client Thru)
+2022-05-17 22:03:55,860 Authentication (password) successful!
+2022-05-17 22:03:55,912 [chan 0] Opened sftp connection (server version 3)
+2022-05-17 22:03:56,645 [chan 0] Opened sftp connection (server version 3)
+2022-05-17 22:03:56,648 checking if sftp connection exists...
+2022-05-17 22:03:56,649 Good to go ! connection exists 

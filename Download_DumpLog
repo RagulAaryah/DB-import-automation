@@ -1,0 +1,27 @@
+2022-05-16 11:13:53,463 Connected (version 2.0, client OpenSSH_6.6.1)
+2022-05-16 11:13:53,555 Authentication (password) successful!
+2022-05-16 11:13:53,555 Successfully logged into the Host : blvd-kuehwm1704.manhdev.com  !
+2022-05-16 11:13:53,555 checking if connected to the host ...
+2022-05-16 11:13:53,555 Good to go ! connection exists 
+2022-05-16 11:13:53,555 invoking the action : cd /apps/scope/products/WM/tools/bin; sh manageserver.sh stop wms
+2022-05-16 11:13:53,757 status : Successfully shutdown WM application !
+2022-05-16 11:13:53,768 checking if connected to the host ...
+2022-05-16 11:13:53,768 Good to go ! connection exists 
+2022-05-16 11:13:53,768 invoking the action : cd /apps/scope/products/MDA/distribution/DeploymentDirector/installer;sh ./scpp-ant.sh stop
+2022-05-16 11:13:55,117 status : Successfully shutdown MDA application !
+2022-05-16 11:13:55,117 checking if connected to the host ...
+2022-05-16 11:13:55,117 Good to go ! connection exists 
+2022-05-16 11:13:55,117 invoking the action : cd /apps/scope/products/MIP/distribution;./scpp-ant.sh stop
+2022-05-16 11:13:55,888 status : Successfully shutdown MIP application !
+2022-05-16 11:13:55,888 checking if connected to the host ...
+2022-05-16 11:13:55,888 Good to go ! connection exists 
+2022-05-16 11:13:56,066 this was the current process to check and kill the orphan processes
+2022-05-16 11:13:56,128 this was the current process to check and kill the orphan processes
+2022-05-16 11:13:56,420 DB connection is successful !
+2022-05-16 11:13:56,435 DB version : 19.7.0.0.0
+2022-05-16 11:13:56,467 
+
+========================Active sessions========================
+2022-05-16 11:13:56,467 No Other Sessions Found for IMPORT_EXPORT
+2022-05-16 11:13:56,467 
+===============================================================

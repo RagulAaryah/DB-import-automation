@@ -1,0 +1,38 @@
+icnt pls_integer;
+begin
+--$Revision: 2$
+    select count(*) into icnt
+    from v$session
+    where schemaname = USER
+    and type = 'USER'
+    and username not in ('SYS','SYSTEM');
+
+    if icnt > 0 then
+        dbms_output.put_line('SID       SERIAL#    SCHEMA              MACHINE                        PROGRAM');
+        dbms_output.put_line('--------- ---------- ------------------- ------------------------------ -----------------------------------');
+
+        for crec in (select sid, serial#, schemaname, machine, program
+                     from v$session
+                     where schemaname = USER) loop
+            dbms_output.put_line(rpad(crec.sid,10,' ') || rpad(crec.serial#,11,' ') || rpad(crec.schemaname,20,' ')|| rpad(crec.machine,31,' ')||crec.program);
+            --alter session kill(crec.sid, crec.serial#);
+            exec manh_kill_session(crec.sid, crec.serial#);
+            
+        end loop;
+        dbms_output.put_line('killed the above sessions');
+    else
+        dbms_output.put_line('No Other Sessions Found for '||user);
+    end if;
+end;
+
+--====================================================
+for crec in (select  sid , serial#  from v$session
+    where schemaname = USER
+    and type = 'USER'
+    and username not in ('SYS','SYSTEM')) loop
+            
+            --alter session kill(crec.sid, crec.serial#);
+            exec manh_kill_session(crec.sid, crec.serial#);
+            
+        end loop;
+        dbms_output.put_line('killed the above sessions');
